@@ -1,12 +1,16 @@
+import kotlin.random.Random
+
 class RandomIntegers {
-    private val randomIndices: ArrayList<Int> = arrayListOf()
+
     fun randomIndexes(n: Int, max: Int): ArrayList<Int> {
-        while (randomIndices.size < n){
-            val newRandom: Int = (0..max).random()
-            if (!randomIndices.contains(newRandom)) {
-                randomIndices.add(newRandom)
-            }
+        val output: ArrayList<Int> = arrayListOf()
+        val sourceRange = 0..max
+        val sourceList: ArrayList<Int> = sourceRange.toCollection(ArrayList())
+        while (output.size < n) {
+            val index = Random.nextInt(0, sourceList.size)
+            output.add(sourceList[index])
+            sourceList.removeAt(index)
         }
-        return randomIndices
+        return output
     }
 }
