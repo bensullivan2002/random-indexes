@@ -1,4 +1,6 @@
+import kotlin.time.measureTime
+
 fun main() {
     val randomIntegers = RandomIntegers()
-    println(randomIntegers.randomIndexes(5, 10))
+    println("Time taken: ${measureTime { randomIntegers.randomIndexes(1, 1) }}")
 }
